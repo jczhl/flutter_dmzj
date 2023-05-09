@@ -1,9 +1,14 @@
 name: app-build-action
 #推送Tag时触发
 on:
-  push:
-    tags:
-      - "*"
+  workflow_dispatch:
+
+    inputs:
+      shell:
+        description: 'shell'
+        required: true
+        default: 'ls'
+
 jobs:
   # MACOS 镜像
   build-mac-ios-android:
